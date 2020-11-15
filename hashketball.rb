@@ -142,3 +142,9 @@ def num_points_scored(player_name)
   player[:points]
 end
 
+def shoe_size (player_name) 
+  players_merged = game_hash[:home][:players].concat(game_hash[:away][:players])
+  player = players_merged.detect { |player| player[:player_name] == player_name }
+  player[:shoe]
+end
+
