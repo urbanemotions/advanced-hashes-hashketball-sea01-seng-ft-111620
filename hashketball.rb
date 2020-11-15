@@ -127,3 +127,11 @@ def game_hash
 end
 
 # Write code here
+def team(team_name) 
+  case team_name 
+  when game_hash[:home][:team_name]
+    game_hash[:home]
+  when game_hash[:away][:team_name]
+    game_hash[:away]
+  end
+end
