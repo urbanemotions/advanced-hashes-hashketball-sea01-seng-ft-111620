@@ -302,7 +302,7 @@ def big_shoe_rebounds
   largest_shoe_size = 0
   player_with_largest_shoe_size = {}
   
-  players_merged.each do |player|
+  players_merged.each do |player|
     if player[:shoe] > largest_shoe_size
       largest_shoe_size = player[:shoe]
       player_with_largest_shoe_size = player
