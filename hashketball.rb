@@ -148,3 +148,34 @@ def shoe_size (player_name)
   player[:shoe]
 end
 
+def team_colors(team_name)
+  team(team_name)[:colors]
+end
+
+def team_names
+  [game_hash[:home][:team_name], game_hash[:away][:team_name]]
+end
+
+def player_numbers(team_name)
+  team(team_name)[:players].map { |player| player[:number] }
+end
+
+def player_stats(player_name)
+  players_merged = game_hash[:home][:players].concat(game_hash[:away][:players])
+  player = players_merged.select { |player| player[:player_name] == player_name }
+  player.first 
+end
+
+def big_shoe_rebounds
+  players_merged = game_hash[:home][:players].concat(game_hash[:away][:players])
+  largest_shoe_size = 0
+  player_with_largest_shoe_size = {}
+
+  players_merged.each do |player|
+    if player[:shoe] > largest_shoe_size
+      largest_shoe_size = player[:shoe]
+      player_with_largest_shoe_size = player
+    end
+  end
+  player_with_largest_shoe_size[:rebounds]
+end
